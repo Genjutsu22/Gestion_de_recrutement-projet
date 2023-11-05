@@ -1,0 +1,92 @@
+body,h1{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.main{
+position: relative;
+padding: 4px;
+padding-top: 4px;
+padding-bottom: 4px;
+   }
+.bg-img{
+    padding: 40px 0 40px 9px;
+    border: 4px solid #75aeff; 
+    border-radius: 5px 5px 0 0; 
+    left: -50%;
+    top: 0;
+    background-image: url('/Tp2/header.jpg');
+    background-position: center;
+  }
+  .title > h1, .title > p{
+    color: aliceblue;
+   }
+   .nav-1{
+      margin: -16px 0 0 0 ;
+      background: linear-gradient(to bottom, rgb(245, 243, 243), rgb(217, 216, 216));        }
+      .nav-1 img{
+        padding: 10px;
+      }
+   ul{
+        display: flex;
+       margin: -10px 0 0 -40px;
+   }
+  ul li {
+ 
+   list-style:none;
+   margin: 5px ;
+   margin-right: 2px;
+   padding: 5px;
+   color: blue;
+   }
+ 
+   a{
+    text-align: left;
+    display: block;
+    color: rgb(153, 30, 30);
+    text-decoration: none;
+    padding: 7px 9px 7px 9px;
+    border-radius: 5px;
+   }
+   a:hover,.checked{
+    background-color: rgba(255, 143, 45, 0.9);
+    transition: ease-in;
+    transition-duration: .2s;
+   }
+   .text-body{
+    display: flex;
+   }
+   .nav-2 ul{
+        display: flow-root;
+   }
+   .nav-2 ul a{
+    width: 90%;
+    margin-left: -10px;
+   }
+   #flower{
+    height: 250px;
+   
+   }
+   .text-body{
+    margin-top: 20px;
+    
+   }
+   .p-1{
+    font-weight: bold;
+    color: #75aeff;
+   }
+   .content-text{
+    display: flex;
+    flex-direction: row; 
+   }
+   .para{
+    display: flex;
+    flex-direction: column;
+   }
+   .txt{
+    max-width: auto;
+    padding-left: 20px;
+    margin-top: -8px;
+   }
+  

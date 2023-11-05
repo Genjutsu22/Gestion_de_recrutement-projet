@@ -1,5 +1,8 @@
 <?php
 
+
+use App\Http\Controllers\PosController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::group(['middleware'=>"web"],function(){
-    Route::get('/', [PosController::class, 'index']);
-    
+Route::group(['middleware' => 'web'], function () {
+    Route::view('register', 'register')->name('register');
+    Route::get('/', [PosController::class, 'index'])->name('/');
+    Route::view('login', 'login');
+    Route::post('login', [PosController::class, 'login'])->name('login');
+    Route::post('logout', [PosController::class, 'logout'])->name('logout');
+    Route::post('register', [PosController::class, 'register'])->name('register_candidat');
 });

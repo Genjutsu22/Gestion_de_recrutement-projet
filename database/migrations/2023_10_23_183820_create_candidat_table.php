@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('adresse');
+            $table->string('cv');
+            $table->string('lettre_motiv');
             $table->integer('OTP')->nullable();
             $table->timestamp('OTP_expiry')->nullable();
             $table->string('cin')->unique();

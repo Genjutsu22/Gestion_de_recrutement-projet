@@ -4,8 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Session;
+
 
 class CustomAuth
 {
@@ -17,13 +19,20 @@ class CustomAuth
     public function handle(Request $request, Closure $next): Response
     { 
         $path = $request->path();
-        if(($path == "login" ) && Session::get('key') ){
+      
+        if ($path == "login" && Session::get('candidat')) {
             return redirect('/');
+        } 
+        
+        if ($path == "register") {
+            return $next($request);
         }
-        else if(($path != "login" ) && !Session::get('key')){
+        
+        if ($path != "login" && !Session::get('candidat')) {
             return redirect('login');
         }
-       
+        
         return $next($request);
     }
+    
 }

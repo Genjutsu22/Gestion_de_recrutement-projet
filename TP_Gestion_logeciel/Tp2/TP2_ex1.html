@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP2 - ex1</title>
+    <style>
+        body{
+            background-color: cyan;
+        }
+   .title-1,ol li{
+    background-color: red;
+    text-align: center;
+    border-color: blue !important;
+    border: 5px;
+    border-style: outset;
+    margin:  0 40% 0 40%; 
+   }
+    ol{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+    ol li {
+    list-style:none;
+    margin: 5px !important;
+    padding: 5px;
+    color: blue;
+    }
+    ul li {
+        list-style: url('/Tp2/star.png');
+    }
+   div{
+    background-color: white;
+    border : 2px;
+    border-style:solid;
+    border-color: blue;
+    margin: 20px;
+    padding: 20px;
+   }
+   h2{
+    color: red;
+    text-decoration: underline;
+   }
+   .tab-1{
+    background-color: gray;
+   }
+   .tab-2{
+    background-color:red;
+   }
+   .tab-3{
+    background-color:blue;
+   }
+    </style>
+</head>
+<body>
+    <h1 class="title-1">Jean-Claude Charr</h1>
+    <ol><li><a href="#first">COORDONNEES</a></li>
+        <li><a href="#2nd">FORMATIONS</li></a></li>
+        <li><a href="#3rd">ACTIVITES PROFESSIONNELLES</a></li>
+        <li><a href="#4th">NIVEAU EN LANGUE</a></li>
+        <li><a href="/Tp2/test.html">Vers la page</a></li></ol>
+    <div>
+        <h2 id="first">Mes cordoonées : </h2>
+        <img src="/Tp1/Jean-claude_Charr.jpeg" height="110px" style="float:right;">
+            <p>Jean-Claude Charr<br>
+            Département Informatique<br>
+            IUT de Belfort-Montbéliard<br>
+            Rue Engel<br>
+          9000 Belfort, France</p>
+    </div>
+    <div>
+    <h2 id="2nd"> Mes formations :</h2>
+    <ul>
+        <li><strong>2006-2009</strong> Doctorat en Informatique à l'<a href="" >université de Franche-Comté</a>.</li>
+        <li><strong>2007-2008</strong> Moniteur au CIES de Lyon.</li>
+        <li><strong>2005-2006</strong> Master  de recherche M2 (CSTI: Cooperation dans les sciences du traitement de l'information) de l'<a href="" >université de Paul sabatier</a>.</li>
+        <li><strong>2001-2005</strong> Maitrise en mathematique appliquees option : informatique à l'universite libanaise.</li>
+        <li><strong>2000-2001</strong> Baccalaureat scientifique au lycee de Beyrouth.</li>
+    </ul>
+    </div>
+    <div>
+    <h2 id="3rd"> Mes activités professionnelles :</h2>
+    <ul>
+        <li><strong>2010-present</strong> Maitre de conference à l'<a href="">IUT de Belfort-Montbeliard</a>.</li>
+        <li><strong>2009-2010</strong> Stage post-doctoral en Informatique à l'INRIA de Lille .</li>
+        <li><strong>2009-2006</strong> Stage de fin d'etude à l'IRIT à Toulouse .</li> 
+    </ul>
+</div>
+<div>
+    <h2 id="4th"> Mon niveau en langue :</h2>
+    <table border="1" cellpadding="5" style="text-align: center;">
+        <tr><td class="tab-1">langues</td><td class="tab-1">Francais</td><td class="tab-1">Anglais</td><td class="tab-1">Arabe</td></tr>
+        <tr><td class="tab-1" >ecrire</td><td class="tab-2">bien</td><td class="tab-2">tres bien</td><td class="tab-2">bien</td></tr>
+        <tr><td class="tab-1" >lire</td><td class="tab-3">tres bien</td><td class="tab-3">tres bien</td><td class="tab-3">bien</td></tr>
+        <tr><td class="tab-1" >comprendre</td><td class="tab-2">tres bien</td><td class="tab-2">tres bien</td><td class="tab-2">tres bien</td></tr>
+    </table>
+</div>
+</body>
+</html>

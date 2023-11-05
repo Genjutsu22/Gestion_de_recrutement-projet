@@ -1,6 +1,7 @@
 <?php
 
-namespace App;
+namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,8 @@ class candidat extends Model
         'adresse',
         'OTP',
         'OTP_expiry',
+        'cv',
+        'lettre_motiv',
         'cin',
     ];
 

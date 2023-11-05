@@ -1,0 +1,133 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway';
+
+
+
+header.custom-header{ 
+     padding: 0 5% 0 5%;
+     width: 100%;
+    overflow-x: hidden;
+    display: flex;
+    background-color:#ff574e;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Raleway;
+    z-index: 100;
+    position: fixed;
+    backdrop-filter: blur(10px);
+}
+header.custom-header.scrolled {
+    
+    background-color: rgba(255, 87, 78, 0.7); 
+}
+
+header.custom-header .im_logo{
+    height: 100px;
+    cursor: pointer;
+}
+header.custom-header .ma_list{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ele{
+list-style:none;
+margin-left: 40px;
+}
+
+ .ma_list a
+{
+    font-size: .9em;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: #ffffff; 
+}
+.first{
+    color:#ffffff;
+}
+
+
+ .ma_list a::before{
+    position: absolute;
+    color: #ffffff;
+    overflow: hidden;
+    content: attr(alt);
+  
+    transition: all 0.3s;
+    transform: scale(0.8);
+    opacity: 0;
+} 
+
+.ma_list a:hover:before
+{
+    text-decoration: none !important;
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+#dropbtn {
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #dropbtn:hover{
+    color: #ffffff;
+    transition: .2ms;
+    transform: translateY(0);
+  }
+  /* Style the dropdown content */
+  .dropdown-content {
+  
+    display: none;
+    position:absolute;
+    margin-left: -89px;
+ 
+    background-color: #ff574e;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   transform: translateY(10px);
+   transition: transform .3s ease-in-out;
+  }
+  
+  /* Style the links inside the dropdown */
+  .dropdown-content a {
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    
+  }
+  
+  .dropdown-content a:hover i { 
+    color: #ffffff;
+    transition: .2ms;
+    transform: translateY(0);
+   }
+  
+
+
+  html{
+    scrollbar-width: thin;
+    
+}
+html::-webkit-scrollbar{
+    width:10px;
+}
+html::-webkit-scrollbar-thumb{
+    background-color: #cb3712 ;
+    height: 300px;
+}
+
+html::-webkit-scrollbar-track{
+    background-color: #ffb5a1;
+}
+
+
+
+
+  
