@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\passentretien;
 use App\Models\Departement;
 use App\Models\admin;
 use App\Models\candidat;
@@ -11,6 +12,7 @@ use App\Models\profession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 class Admincontroller extends Controller
 {
     public function download_offre($file){
@@ -233,11 +235,13 @@ public function edit_profession(Request $request){
  }
  public function accepter_offre(request $request){
     try {
+        $candidat = candidat::find($request->input('idcandidat'));
        demande_emploi::where('id_candidat', $request->input('idcandidat'))
         ->where('id_offre', $request->input('idoffre'))
        ->update([
             'accepted' => 1,
             'date_entretien' => $request->input('date_entretien')]);
+            Mail::to($candidat->email)->send(new passentretien($request->input('nom_prof'),$request->input('nom_depart'),$request->input('date_entretien')));
          return redirect()->back()->with('success', 'Le candidat a été accepté !');
  
      } catch (\Throwable $th) {

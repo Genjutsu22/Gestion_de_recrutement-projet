@@ -111,6 +111,7 @@ class PosController extends Controller
     
         return redirect('login');
     }
+    
     public function register(Request $request){
             if ($request->has('signup')) {
                 $validatedData = $request->validate([

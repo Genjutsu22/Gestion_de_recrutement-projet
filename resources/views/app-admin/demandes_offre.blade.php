@@ -106,6 +106,8 @@ Admin
                         <span>Date d'entretien</span>
                         <input name="idoffre" id="idoffre" style="display :none;" value="">
                         <input name="idcandidat" id="idcandidat" style="display :none;" value="">
+                        <input name="nom_prof"  style="display :none;" value="{{$offre[0]->nom_prof}}">
+                        <input name="nom_depart"  style="display :none;" value="{{$offre[0]->nom_depart}}">
                         <input type="date" name="date_entretien" id="date_entrtien" required>
             </div>          
       <div class="modal-footer">
