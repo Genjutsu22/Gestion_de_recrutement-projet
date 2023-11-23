@@ -43,7 +43,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('app-admin/home/demandes/{id}', [Admincontroller::class, 'offres_details'])->name('app-admin/home/demandes');
     Route::post('app-admin/home/accepter_offre', [Admincontroller::class, 'accepter_offre'])->name('app-admin/home/accepter_offre');
     Route::post('app-admin/home/refuse_offre/{id}', [Admincontroller::class, 'refuse_offre'])->name('app-admin/home/refuse_offre');
-    Route::view('app-admin.change_passe', 'app-admin.change_passe')->name('change_passe_page');  
+    Route::view('app-admin/change_passe', 'app-admin.change_passe')->name('change_passe_page'); 
     
 });
 Route::group(['middleware' => 'candidat'], function () {
