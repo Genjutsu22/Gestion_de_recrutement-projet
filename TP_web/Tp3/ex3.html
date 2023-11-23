@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 3</title>
+    <script>
+        function devineLeNombre() {
+           
+            var nombreATrouver = nbAlea(0, 100);
+            var fois = 0;
+            var trouve = false;
+            alert(nombreATrouver);
+            while (!trouve) {
+                var proposition = prompt("entrer le nombre entre 0 et 100 :");
+                if (proposition === null) {
+                    break; 
+                }
+                fois++;
+
+                if (isNaN(proposition)) {
+                    alert("Veuillez entrer un nombre valide.");
+                } else {
+                    proposition = parseInt(proposition);
+
+                    if (proposition === nombreATrouver) {
+                        trouve = true;
+                        alert("Bravo, vous avez trouvé en " + fois + " tentatives !");
+                    } else if (proposition < nombreATrouver) {
+                        alert("Le nombre à trouver est plus grand.");
+                    } else {
+                        alert("Le nombre à trouver est plus petit.");
+                    }
+                }
+            }
+        }
+
+        function nbAlea(min, max) {
+            var nb = min + (max - min + 1) * Math.random();
+            return Math.floor(nb);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="devineLeNombre()">Jouer à devine le Nombre</button>
+</body>
+</html>

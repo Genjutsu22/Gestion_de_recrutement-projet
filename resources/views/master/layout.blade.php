@@ -13,13 +13,17 @@
 </head>
 <body>  
 
-@if(Session::get('error'))
+@if(session('error'))
 <div id="alert" class="alert alert-danger" style="display:none; text-align:center; z-index:100;">
 <i class="fas fa-exclamation-circle"></i>   <strong> {{session('error')}}</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
 </div>
 @elseif(session('success'))
-    <div id="alert" class="alert alert-success" style="display:none; text-align:center; color:aliceblue; background-color:forestgreen; z-index:100;">
+    <div id="alert" class="alert alert-success" style="display:none; text-align:center; color:black;  z-index:100;">
         <i class="fas fa-check-circle"></i>   <strong>{{session('success')}}</strong> 
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
     </div>
 @endif
 
@@ -28,7 +32,6 @@
      $('a.profile').on('click', function () {
         location.reload(true);
     });
-  
     $(document).ready(function(){
         $("#alert").show();
      });

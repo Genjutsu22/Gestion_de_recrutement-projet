@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('demanade_emploi', function (Blueprint $table) {
+        Schema::create('demande_emploi', function (Blueprint $table) {
             $table->unsignedInteger('id_candidat');
             $table->unsignedInteger('id_offre');
             $table->primary(['id_candidat', 'id_offre']);
             $table->dateTime('date_entretien')->nullable();
-            $table->boolean('accepted');
+            $table->boolean('accepted')->nullable();
             $table->foreign('id_candidat')->references('id_candidat')->on('candidat')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('id_offre')->references('id_offre')->on('offre_emploi')->onDelete('cascade')->onUpdate('cascade');
         });

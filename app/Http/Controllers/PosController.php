@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Mail\ForgetPassMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB as FacadesDB;
@@ -18,28 +19,27 @@ class PosController extends Controller
    
     public function index()
     {
-        $data = Session::get('candidat');
+        $candidat = Session::get('candidat');
+        $data = candidat::find($candidat['id']);
         if (!empty($data)) {
-            return view('candidat.home', ["data" => $data]);
+            return view('candidat.home', compact("data"));
         }
         return redirect('login');
     }
    public function login(Request $request)
     { 
-       
         if(!empty($request->input('email'))){
             $p = candidat::where('email',$request->input('email'))->get();
             if($p->isNotEmpty() && ($p[0]->password == md5($request->input('password')) )){
-             $request->session()->put('candidat', [$p[0]->id_candidat, $p[0]->nom, $p[0]->prenom, $p[0]->cin, $p[0]->cv, $p[0]->lettre_motiv]); 
+             $request->session()->put('candidat', ["id"=>$p[0]->id_candidat, "nom"=>$p[0]->nom, "prenom"=> $p[0]->prenom, "cin"=> $p[0]->cin,"cv"=> $p[0]->cv, "lmv"=>$p[0]->lettre_motiv,"adresse"=>$p[0]->adresse,"email"=>$p[0]->email]); 
              return redirect('/');
             }else{
-                return redirect('/login')->with('error', 'The email or password you entered is incorrect.');
+                return back()->withErrors(['login' => 'The email or password you entered is incorrect.'])->onlyInput('email');
                 
             }
          } 
          
          if (!empty($request->input('semail'))) {
-            try {
              $email = $request->input('semail');
  
              // Check if the email exists in the personnes table
@@ -63,11 +63,9 @@ class PosController extends Controller
              
                  return view('forget-pass');
              } else {
-                 return redirect('/login')->with('error', "Email introuvable !");// Return a message indicating the email was not found
+                 return back()->withErrors(['email'=> "Email introuvable !"])->onlyInput('semail');// Return a message indicating the email was not found
              }
-          } catch (\Throwable $th) {
-                 return redirect('/login')->with('error', 'Error !');
-             }
+         
           //modification de mot de passe  
          }elseif($request->input('nvpass') && $request->input('conpass')){
              $email = Session::get('email');
@@ -99,28 +97,35 @@ class PosController extends Controller
       
     public function logout(Request $request)
     {
-        Auth::logout();
+       
+        $adminSession = session('admin');
+
+        // Invalidate all sessions
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+    
+        // Restore the 'admin' session data
+        if ($adminSession) {
+            $request->session()->put('admin', $adminSession);
+        }
+    
         return redirect('login');
     }
     public function register(Request $request){
-        try {
             if ($request->has('signup')) {
-                // Validate the form data
                 $validatedData = $request->validate([
-                    'email' => 'required|email',
+                    'email' => 'required|unique:candidat,email',
                     'password' => 'required|min:6',
                     'confirm-password' => 'required|same:password',
                     'nom' => 'required',
                     'prenom' => 'required',
-                    'cin' => 'required',
+                    'cin' => 'required|unique:candidat,cin',
                     'adresse' => 'required',
                     'cv' => 'required|file|mimes:pdf,doc,docx', 
                     'lettre_motiv' => 'required|file|mimes:pdf,doc,docx', 
                 ]);
-    
-             
+                
+                // Upload files and get their filenames
                 $fileCV = $request->file('cv');
                 $filenameCV = time() . '.' . $fileCV->getClientOriginalExtension();
                 $fileCV->move(public_path('uploads'), $filenameCV);
@@ -128,25 +133,25 @@ class PosController extends Controller
                 $fileLMV = $request->file('lettre_motiv');
                 $filenameLMV = time() . '.' . $fileLMV->getClientOriginalExtension();
                 $fileLMV->move(public_path('uploads'), $filenameLMV);
-    
-                $candidate = new candidat();
-                $candidate->email = $validatedData['email'];
-                $candidate->password = md5($validatedData['password']);
-                $candidate->nom = $validatedData['nom'];
-                $candidate->prenom = $validatedData['prenom'];
-                $candidate->cin = $validatedData['cin'];
-                $candidate->adresse = $validatedData['adresse'];
-                $candidate->cv = $filenameCV; 
-                $candidate->lettre_motiv = $filenameLMV; 
-                $candidate->save();
-    
+                
+                // Create Candidat instance with form data and file names
+                candidat::create([
+                    'email' => $validatedData['email'],
+                    'password' => md5($validatedData['password']),
+                    'nom' => $validatedData['nom'],
+                    'prenom' => $validatedData['prenom'],
+                    'cin' => $validatedData['cin'],
+                    'adresse' => $validatedData['adresse'],
+                    'cv' => $filenameCV, 
+                    'lettre_motiv' => $filenameLMV,
+                ]);
                 // Redirect to a success page or perform any other actions
-                return redirect('/register')->with('success', 'Registration successful');
+                return redirect('/login')->with('success', 'Registration successful');
             }
-        } catch (\Throwable $th) {
-            return redirect('/register')->with('error', 'An error encountered while registering!');
-           
-        }
+      
        
+    }
+    public function download_offre($file){
+        return response()->download(public_path('uploads/'.$file));
     }
 }

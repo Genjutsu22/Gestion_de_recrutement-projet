@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,100;1,300;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Krub:400,700");
+
+html, body
+{
+    margin: 0px;
+    background-color: #ff574e !important;
+    font-family: 'Krub',sans-serif;
+}
+.container-1{
+text-align: center;
+translate: translateY(50%,50%);
+  padding-bottom: 0;
+}
+.container-2{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 82%;
+	margin: 0 10%;
+	position: relative;
+}
+#msform fieldset legend{
+  font-weight: bold;
+}
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+#msform input, #msform textarea,select{
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	color: #2C3E50;
+	font-size: 13px;
+}
+.btn-13 {
+  text-align: center;
+  background-color: #ff574e !important;
+  border: none;
+  z-index: 1;
+
+}
+.btn-13:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+   background-color: #ffffff;
+   
+
+  box-shadow:
+   -7px -7px 20px 0px rgba(255, 255, 255, 0.01),
+   -4px -4px 5px 0px rgba(255, 255, 255, 0.09),
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-13:hover {
+  color: #e23053;
+}
+.btn-13:hover:after {
+  top: 0;
+  height: 100%;
+  
+}
+.btn-13:active {
+  top: 2px;
+}
+
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255, 255, 255, 0.01),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+#msform input:hover{
+  border: 1px solid #ff574e ;
+  font-weight: bold;
+}

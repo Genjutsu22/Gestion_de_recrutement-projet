@@ -28,7 +28,7 @@ Login
                <p>Saisir votre adress email et mot de passe</p>
                   <div class="form-group">
                      <label for="loginemail">Email</label>
-                     <input type="email" name="email" id="loginemail" class="email "required>
+                     <input type="email" name="email" id="loginemail" class="email " value="{{old('email')}}" required>
                      <span class="error"></span>
                   </div>
 
@@ -36,7 +36,11 @@ Login
                      <label for="loginPassword">Mot de passe</label>
                      <span class="error"></span>
                      <input type="password" name="password" id="loginPassword" class="email" required>
-                     <span class="error"></span>
+                     <span class="error">
+                        @error('login')
+                        {{$message}}
+                        @enderror
+                     </span>
                   </div>
 
                   <div class="CTA">
@@ -50,14 +54,17 @@ Login
             <!-- End Signup Form -->
             <!-- Login Form -->
   <div class="signup form-peice switched">
-   
    <form class="signup-form" action="{{ route('login') }}" method="post">
   @csrf
     <p>Saisir votre adresse email</p>
     <div class="form-group">
         <label for="email">Adresse Email</label>
-        <input type="email" name="semail" id="email" class="email" required>
-        <span class="error"></span>
+        <input type="email" name="semail" id="email" class="email" value="{{old('semail')}}" required>
+        <span class="error">
+                        @error('email')
+                        {{$message}}
+                        @enderror
+       </span>
     </div>
     <div class="CTA">
         <input type="submit" value="Vérifier" name="forget" id="submit">

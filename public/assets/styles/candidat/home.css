@@ -1,11 +1,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,100;1,300;1,400&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Krub:400,700");
 
 html, body
 {
     margin: 0px;
     background-color: #ff574e !important;
+    font-family: 'Roboto', sans-serif ;
     
 }
 
@@ -25,11 +26,10 @@ html, body
   padding-top: 10%;
  
 } 
-p{
+.text-area p{
     margin:10px;
     color:rgb(255, 255, 255);
     text-decoration: none;
-    font-family: 'Roboto', sans-serif ;
     letter-spacing: 1px;
     transition: color .9ms ease;
     text-align: center;
@@ -42,11 +42,14 @@ p{
    
 }
 .txt{
+  font-family: 'Roboto';
     font-weight: 200;
     font-size: .9em;
 }
 .btn-13 {
+  text-align: center;
   margin-top: 20px;
+  color: #ffffff !important;
   background-color: #ff574e;
   border: none;
   z-index: 1;
@@ -72,7 +75,7 @@ p{
   transition: all 0.3s ease;
 }
 .btn-13:hover {
-  color: #e23053;
+  color: #e23053 !important;
 }
 .btn-13:hover:after {
   top: 0;
@@ -83,10 +86,7 @@ p{
   top: 2px;
 }
 
-button {
-  margin: 20px;
-  
-}
+
 .custom-btn {
   width: 130px;
   height: 40px;
@@ -106,69 +106,6 @@ button {
   outline: none;
 }
 
-.foot,.text-foot {
-	font-family: 'Roboto', sans-serif;
-	font-weight:500;
-	font-size:1em;
-	color: #EF6C33;
-	position: fixed;
-    bottom: 0;
-    left: 0;
-	width: 100%;
-	
-	
-  }
-.foot li{
-	list-style: none;
-    padding: 10px;
-	
-}
-
- 
-  .waves {
-
-	width: 100%;
-	min-height:70px;
-	max-height:90px;
-  }
-  
-  .content {
-
-	height:5vh;
-	text-align:center;
-	background-color: white;
-	margin-top: -20px;
-  }
-  
-  /* Animation */
-  
-  .parallax > use {
-	animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
-  }
-  .parallax > use:nth-child(1) {
-	animation-delay: -2s;
-	animation-duration: 7s;
-  }
-  .parallax > use:nth-child(2) {
-	animation-delay: -3s;
-	animation-duration: 10s;
-  }
-  .parallax > use:nth-child(3) {
-	animation-delay: -4s;
-	animation-duration: 13s;
-  }
-  .parallax > use:nth-child(4) {
-	animation-delay: -5s;
-	animation-duration: 20s;
-  }
-  @keyframes move-forever {
-	0% {
-	 transform: translate3d(-90px,0,0);
-	}
-	100% { 
-	  transform: translate3d(85px,0,0);
-	}
-  }
 
 /*Shrinking for mobile*/
 @media (max-width: 768px) {
@@ -183,4 +120,199 @@ button {
 .flex ul{
   align-items: flex-start;
   list-style-type: none;
+}
+
+
+/* ddssd */
+:root {
+    
+  /* colors */
+  --purple: #7276e1;
+  --orange: hsl(14, 88%, 65%);
+  --blue-dark: hsl(238, 29%, 16%);
+  --grey-light: hsl(237, 12%, 33%);
+  --blue-mid: hsl(240, 6%, 50%);
+
+  /* fonts */
+  --font: 'Kumbh Sans', sans-serif;
+  --base-font-size: 1.2rem;
+
+}
+
+
+.faq { 
+  font-family: var(--font);
+  background-color: #fff;
+  border-radius: 25px;
+  padding: 50px 25px;
+  margin: 10px 5% 5% 22% !important;
+  min-width: 320px;
+  max-width: 320px;
+}
+
+.faq__logo {
+  background: url('https://bobmatyas.github.io/fm-faq-accordion/images/bg-pattern-mobile.svg') center bottom no-repeat;
+  background-color: transparent;
+  margin: 0 auto;
+  max-width: 300px;
+  padding: 0;
+  margin-top: -157px;
+}
+
+.faq__logo__image {
+  margin-left: -15px;
+  margin-bottom: 35px;
+}
+
+.faq__heading { 
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-align: center; 
+}
+
+.faq__detail {
+  border-bottom: 1px solid hsl(240, 5%, 91%);
+  margin: 20px 0 0 0;
+  padding: 5px 0 20px 0;
+}
+
+.faq__summary:hover,
+.faq__summary:active { 
+  
+  cursor: pointer; 
+}
+
+.faq__detail[open] > .faq__summary { 
+  font-weight: 700; 
+}
+
+.faq__summary {
+  list-style: none;
+}
+
+.faq__summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__summary { 
+  display: block;
+  padding: 0;
+  position: relative;
+  text-align: right;
+}
+
+  
+.faq__summary:after {
+  display: inline-block;
+  content: url("https://bobmatyas.github.io/fm-faq-accordion/images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+  text-align: right;
+  padding-bottom: 50px;
+}
+
+details[open] .faq__summary:after {
+  display: inline-block;
+  width: 18px;
+  height: 10px;
+  content: "";
+  background-image: url("https://bobmatyas.github.io/fm-faq-accordion/images/icon-arrow-down.svg");
+  background-repeat: no-repeat;
+  background-position: center right;
+  transform:scaleY(-1);
+}
+
+
+.faq__question {
+  left: 0;
+  position: absolute;
+  text-align: left;
+  margin-top: 15px;
+  font-size: 1.5em;
+  top: 0;
+  width: 100%;
+  display: inline-block;
+}
+
+
+.faq__summary {
+  color: var(--blue-dark);
+  font-size: .7rem; 
+}
+
+.faq__summary:focus {
+  color: var(--orange); 
+  font-weight: bold;
+  outline: none;
+}
+
+.faq__text {
+  color: var(--blue-mid);
+  font-size: 1.2em !important;
+  margin: 10px 0 0 0;
+}
+
+.hidden-lg { display: block; }
+  
+.visible-lg { display: none; }
+
+
+@media (min-width: 900px) {
+  .faq {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      min-width: 900px;
+      padding: 0;
+      margin: 0;
+  }
+
+  .faq__logo__holder { 
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: center;
+  }
+
+  .faq__holder {
+      margin: 0 50px;
+      padding: 70px 0;
+      max-width: 500px;
+      width: 450px;
+  }
+
+  .faq__logo {
+      display: flex;
+      align-items: center;
+      /* background-image: url(https://bobmatyas.github.io/fm-faq-accordion/images/illustration-woman-online-desktop.svg), url(https://bobmatyas.github.io/fm-faq-accordion/images/bg-pattern-desktop.svg); */
+      /* background-position: -75px center, -571px -270px; */
+      background-size: 100%, 200%;
+      height: 100%;
+      width: 150px;
+      padding: 0;
+      width: 525px;
+      position: relative;
+  }
+
+  .faq__heading {
+      text-align: left;
+  }
+
+
+
+  .visible-lg { 
+      display: block; 
+      position: absolute;
+      margin-top: 120px;
+      left: -80px;    
+  }
+
+  .faq__text {
+      margin: 0 0 10px 0;
+  }
+
+  .faq__detail {
+      margin: 10px 0 0 0 0;
+      padding: 0;
+  }
 }

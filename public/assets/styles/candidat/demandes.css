@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css?family=Krub:400,700");
+html, body
+{
+    margin: 0px;
+    background-color: #ff574e !important;
+    font-family: 'Krub';
+    
+}
+.title{
+  padding-top: 105px;
+  text-align: center;
+}
+.title h1{
+    color: #151515;
+    font-weight: 700;
+}
+.title p{
+    color: #151515;
+}
+.rec{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  margin-top: 5%;
+}
+.p-3{
+  border-radius: 4px;
+  margin-left: 150px;
+}
+.row{
+
+  margin-right: 2px !important;
+  margin-left: 2px !important;
+}
+.txt{
+   padding: 50px;
+   color: #151515;
+}
+.card {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px; 
+}
+
+.icons {
+    display: flex;
+    flex-shrink: 0; 
+}
+
+.icons i {
+    margin-top: -110px;
+    margin-left: 50px;
+    font-size: 4em; 
+    color: #151515;
+    
+}
+
+.card-body {
+    flex-grow: 1; 
+}
+.icon-delete i{
+    color: #151515;
+}
+.icon-delete a:visited{
+    color: #151515;
+}
+.icon-delete a{
+    color: #151515;
+    text-decoration: none;
+    font-size: .9em;
+}
+
+
+
+
+  

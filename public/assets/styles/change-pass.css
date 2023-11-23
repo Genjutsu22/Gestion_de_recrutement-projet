@@ -14,6 +14,14 @@ body {
   background: #666666 !important;
 }
 
+.container-1{
+  text-align: center;
+}
+.container-1 h1{
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 150px;
+}
 .wrapper {
   margin: 0 auto;
   width: 100%;

@@ -1,0 +1,106 @@
+.main h1,h6,label,.title th{
+    color: aliceblue ;
+}
+
+.dataTables_empty{
+    color: aliceblue !important;
+}
+
+.main table th{
+    text-align: center;
+    
+}
+
+.main label{
+    margin: 20px;
+}
+.pagination{
+    margin: 20px !important;
+}
+.main .title{
+    margin-top: 20px;
+}
+.main .title,h3{
+    text-align: center;
+}
+
+
+.modal-title,.modal-body h3{
+    color: #ff574e;
+}
+.upd{
+    background-color: cornflowerblue;
+    border-style: none;
+    border-radius: 5px;
+    padding: 7px;
+    color: aliceblue;
+
+}
+.upd:hover{
+    background-color: rgb(55, 120, 241);
+}
+
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+	position: relative;
+}
+
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+#msform input, #msform textarea,select{
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	color: #2C3E50;
+	
+}
+#show_modal{
+    width: 200px;
+    background-color: transparent;
+    border: none;
+    margin-left: 83%;
+}
+#show_modal:hover{
+    background-color: #ff574e;
+    color: #000;
+    transition: all 0.35s ease-in-out;
+}
+.btn-13 {
+    background-color: #ff574e;
+    display: inline-block;
+    padding: 7px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #ffffff;
+    outline: none;
+    border: 1px solid #ffffff;
+    transition: .3s;
+    -webkit-transition: .3s;
+  }
+  
+  .btn-13:hover {
+    color: #ffffff;
+    background: #656464;
+  }
+  

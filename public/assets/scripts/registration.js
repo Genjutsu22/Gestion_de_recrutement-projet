@@ -2,19 +2,35 @@ var current_fs, next_fs, previous_fs;
 var left, opacity, scale; 
 var animating; 
 $(document).ready(function () {
-	$('.choose-file').on('change input', function () {
-	
-		var filename = $(this).val();
-		var ext = filename.split('.').pop().toLowerCase();
+	$('.chooseFile').bind('change', function () {
+		var input = $(this);
+		var filename = input.val();
 		
-		if (/^\s*$/.test(filename)) {
-			// File input is empty
-		} else if ($.inArray(ext, ['pdf', 'doc', 'docx']) == -1) {
-			alert("Only PDF and Word files are allowed!");
-			$(this).val("");
+		var fileSelectName = input.closest('.file-select').find('.file-select-name');
+	
+		if (filename.trim() !== "") {
+			var ext = filename.split('.').pop().toLowerCase();
+	
+			if ($.inArray(ext, ['pdf', 'doc', 'docx']) !== -1) {
+				input.closest('.file-upload').addClass('active');
+				txt = filename.replace("C:\\fakepath\\", "");
+				fileSelectName.text(txt);
+				// fileSelectName.css('margin-top', '-42px');
+				// if (txt.length >10) {
+				// 	fileSelectName.css('margin-left', '40%');
+				// }
+			} else {
+				input.closest('.file-upload').removeClass('active');
+				fileSelectName.text("No file chosen...");
+				alert("Only PDF and Word files are allowed!");
+				input.val("");
+			}
+		} else {
+			input.closest('.file-upload').removeClass('active');
+			fileSelectName.text("No file chosen...");
 		}
+	
 	});
-
 $(".next").click(function(){
 	if(animating) return false;
 	animating = true;

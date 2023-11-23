@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 2</title>
+    <script>
+        function afficherTableMultiplication() {
+            var valeur = prompt("Entrez une valeur :");
+
+            if (valeur !== null && !isNaN(valeur)) {
+                valeur = parseInt(valeur);
+                var table = "<h2>Table de multiplication de " + valeur + " :</h2>";
+                table += "<table border='1'><tr><th>Multiplication</th><th>Résultat</th></tr>";
+
+                for (var i = 1; i <= 10; i++) {
+                    table += "<tr><td>" + valeur + " x " + i + "</td><td>" + (valeur * i) + "</td></tr>";
+                }
+                table += "</table>";
+                document.getElementById("result").innerHTML = table;
+            } else {
+                alert("Veuillez entrer un nombre valide.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="afficherTableMultiplication()">Afficher Table de Multiplication</button>
+    
+    <div id="result"></div>
+</body>
+</html>

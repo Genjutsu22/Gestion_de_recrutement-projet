@@ -9,27 +9,10 @@
 @endsection
 @section('content')
 
-	<script type="text/javascript" class="init">
-	
-$(document).ready(function(){
-        $("#alert").show();
-     });
-     setTimeout(function() {
-        $("#alert").fadeOut();
-     }, 5000);
 
-	</script>
 <div class="container-1 ">
-@if(session('error'))
-    <div id="alert" class="alert alert-danger" style="display:none; text-align:center;  color:aliceblue;">
-        <i class="fas fa-exclamation-circle"></i>   <strong>{{session('error')}}</strong> 
-    </div>
-@elseif(session('success'))
-    <div id="alert" class="alert alert-success" style="display:none; text-align:center; color:aliceblue;">
-        <i class="fas fa-check-circle"></i>   <strong>{{session('success')}}</strong> 
-    </div>
-@endif
 <div class="wrapper">
+<h1>Changer votre mot de passe</h1>
   <div class="container">
     <div class="col-left">
       <div class="page-text">

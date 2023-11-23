@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tp3</title>
+    <script>
+        function valider(form1){
+            nom = form1.nom.value;
+            login = form1.login.value;
+            pass = form1.pass.value;
+            rec_pass = form1.rec.value;
+            pic = form1.pic.value.split('.');
+            extension = pic[pic.length - 1];
+            alert(extension.length);
+        if(pass.length < 8){
+            alert('mot de passe inferieure de 8 characters !');
+        }else if(pass != rec_pass){
+                alert('les mot de passes sont pas compatible !');
+        }
+        if(extension != "jpg" || extension != "png" || extension != "jpeg" ){
+            alert('ce fichier est pas compatible !');
+        }
+        }
+
+    </script>
+</head>
+<body>
+    <form enctype="multipart/form-data" name="form1">
+        <fieldset>
+            <legend>Formulaire 1</legend>
+            <div>
+                <label for="nom">Nom :</label>
+                <input type="text" name="nom" id="nom" placeholder="votre nom?" required>
+            </div>
+            <div>
+                <label for="login">Pseudo (login) :</label>
+                <input type="text" name="login" id="login" placeholder="votre pseudo?" required>
+            </div>
+            <div>
+                <label for="pass">Mot de passe :</label>
+                <input type="password" name="pass" id="pass" required>
+            </div>
+            <div>
+                <label for="rec">Mot de passe (recommencer) :</label>
+                <input type="password" name="rec" id="rec" required>
+            </div>
+            <div>
+                <label for="pic">Fichier (photo) :</label>
+                <input type="file" name="pic" id="pic">
+            </div>
+            <input type="submit" onclick="valider(form1)">
+        </fieldset>
+    </form>
+    <form  name="form2">
+        <fieldset>
+            <legend>Informations personnelles</legend>
+            <div>
+                <label for="nom">Votre nom?</label><br>
+                <input type="text" name="nom" id="nom"  required>
+            </div>
+            <div>
+                <label for="prénom">Votre prénom?</label><br>
+                <input type="text" name="prénom" id="prénom" required>
+            </div>
+            <div>
+                <label for="email">Votre e-mail?</label><br>
+                <input type="email" name="email" id="email" required>
+            </div>
+             <div>
+                <label for="bac-select">Veuillez indiquer votre type de bac :</label>
+                <div>
+                    <input type="radio" id="bacs" name="bac-select" value="bacs" checked />
+                    <label for="bacs">bac S</label>
+                </div>
+                <div>
+                    <input type="radio" id="bacsti" name="bac-select" value="bacsti" />
+                    <label for="bacsti">bac STI</label>
+                </div>
+                <div>
+                    <input type="radio" id="bacstt" name="bac-select" value="bacstt" />
+                    <label for="bacstt">bac STT</label>
+                </div>
+                <div>
+                    <input type="radio" id="autre" name="bac-select" value="autre" />
+                    <label for="autre">autre</label>
+                </div>
+             </div>
+            <input type="submit" onclick="valider(form2)">
+        </fieldset>
+    </form>
+    <form name="form3">
+        <fieldset>
+            <legend>Informationssur ce semectre</legend>
+             <div>
+                <label for="grp-select">Dans quel groupe êtes vous?</label><br>
+                <select name="grp" id="grp-select">
+                    <option value="s1a">S1-A</option>
+                    <option value="s1b">S1-B</option>
+                    <option value="s2a">S2-A</option>
+                    <option value="s2b">S2-B</option>
+                </select>
+            </div>
+            <div>
+                <label for="numero">Votre numéro?</label><br>
+                <input type="number" name="numero" id="numero">
+            </div>
+            <label>Votre choix d'option :</label>
+            <div>
+                 <input type="checkbox" name="choix1" id="choix1">
+                 <label for="choix1">Allemand</label>
+            </div>
+            <div>
+                 <input type="checkbox" name="choix2" id="choix2">
+                 <label for="choix2">Sport</label>
+            </div>
+            <br>
+            <input type="button" value="Valider">
+            <input type="button" value="Effacer">
+        </fieldset>
+    </form>
+</body>
+</html>

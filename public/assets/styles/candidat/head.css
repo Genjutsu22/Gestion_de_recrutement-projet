@@ -39,10 +39,15 @@ margin-left: 40px;
 {
     font-size: .9em;
     font-weight: bold;
-    text-decoration: none;
+    text-decoration: none !important;
     cursor: pointer;
     color: #ffffff; 
+    
 }
+.ma_list a:visited:hover {
+    color: #ff574e; 
+
+  }
 .first{
     color:#ffffff;
 }
@@ -53,7 +58,7 @@ margin-left: 40px;
     color: #ffffff;
     overflow: hidden;
     content: attr(alt);
-  
+    text-decoration: none;
     transition: all 0.3s;
     transform: scale(0.8);
     opacity: 0;
@@ -63,6 +68,7 @@ margin-left: 40px;
 {
     text-decoration: none !important;
     transform: scale(1);
+    color: #ffffff;
     opacity: 1;
 }
 

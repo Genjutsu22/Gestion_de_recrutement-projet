@@ -22,8 +22,17 @@
     <h2 class="fs-title">Informations login</h2>
     <h3 class="fs-subtitle">Step 1</h3>
     <input type="text" name="email" placeholder="Email *" required/>
+    @error('email')
+    <div class="text-danger" >{{$message}}</div>
+    @enderror
     <input type="password" name="password" placeholder="Password *" required/>
+    @error('password')
+    <div class="text-danger" >{{$message}}</div>
+    @enderror
     <input type="password" name="confirm-password" placeholder="Confirm Password *" required/>
+    @error('confirm-password')
+    <div class="text-danger" >{{$message}}</div>
+    @enderror
     <input type="button" name="next" class="next action-button" value="Next" />
   </fieldset>
   <fieldset>
@@ -32,6 +41,9 @@
     <input type="text" name="nom" placeholder="Nom *" required/>
     <input type="text" name="prenom" placeholder="Prénom *" required/>
     <input type="text" name="cin" placeholder="CIN *"required/>
+    @error('cin')
+    <div class="text-danger" >{{$message}}</div>
+    @enderror
     <input type="text" name="adresse" placeholder="Adresse *"required/>
     <input type="button" name="previous" class="previous action-button" value="Previous" />
     <input type="button" name="next" class="next action-button" value="next" />
@@ -40,9 +52,22 @@
     <h2 class="fs-title">Cv et Lettre de motivation*</h2>
     <h3 class="fs-subtitle">Step 3</h3>
     <p>CV*</p>
-    <input type="file" name="cv" placeholder="CV" class="choose-file">
-    <p>Lettre de motivation*</p>
-    <input type="file" name="lettre_motiv" placeholder="Lettre de motivation" class="choose-file" required/>
+<div class="file-upload">
+    <div class="file-select">
+        <div class="file-select-button" id="fileName1">Choose File</div>
+        <div class="file-select-name" >No file chosen...</div>
+        <input type="file" name="cv" class="chooseFile fileInput1">
+    </div>
+</div>
+
+<p>Lettre de motivation*</p>
+<div class="file-upload">
+    <div class="file-select">
+        <div class="file-select-button" id="fileName2">Choose File</div>
+        <div class="file-select-name" >No file chosen...</div>
+        <input type="file" name="lettre_motiv" class="chooseFile fileInput2">
+    </div>
+</div>
     <input type="button" name="previous" class="previous action-button" value="Previous" required/>
     <input type="submit" class="submit action-button" name="signup" value="submit"/>
   </fieldset>

@@ -11,11 +11,6 @@
    Forget password
 @endsection
 @section('content')
-@if(session('error'))
-<div id="alert" class="alert alert-danger" style="display:none; text-align:center;">
-<i class="fas fa-exclamation-circle"></i>   <strong>{{session('error')}}</strong> 
-</div>
-@endif
 @php
     $email = session('email');
     $maskedEmail = substr_replace($email, str_repeat('*', 6), 3, 6);

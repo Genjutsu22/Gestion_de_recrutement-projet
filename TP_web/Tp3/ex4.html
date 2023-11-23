@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaires</title>
+    <script>
+        function genererFormulaire(zoneSaisieDefault, boutonChoixDefault, menuDeroulantDefault) {
+            var valeurMax = prompt("Entrez la valeur maximale (par défaut : 10) :") || 10;
+
+            function genererFormulaireZoneSaisie() {
+                var form = '<form action="resultat.html" id="formZoneSaisie">';
+                form += '<label for="zoneSaisie">Zone de saisie :</label>';
+                form += '<input type="text" id="zoneSaisie" name="zoneSaisie" value="' + zoneSaisieDefault + '" max="' + valeurMax + '">';
+                form += '<button type="submit" onclick="submitForm(formZoneSaisie)">Soumettre</button>';
+                form += '</form>';
+                document.write(form);
+            }
+
+            function genererFormulaireBoutonChoix() {
+                var form = '<form action="resultat.html" id="formBoutonChoix">';
+                for (var i = 1; i <= 5; i++) {
+                    form += '<input type="radio" name="choixRadio" value="' + i + '">' + i + ' ';
+                }
+                form += '<button type="submit" onclick="submitForm(formBoutonChoix)">Soumettre</button>';
+                form += '</form>';
+                document.write(form);
+            }
+
+            function genererFormulaireMenuDeroulant() {
+                var form = '<form action="resultat.html" id="formMenuDeroulant">';
+                form += '<label for="menuDeroulant">Menu déroulant :</label>';
+                form += '<select id="menuDeroulant" name="menuDeroulant">';
+                for (var i = 1; i <= 5; i++) {
+                    form += '<option value="' + i + '">' + i + '</option>';
+                }
+                form += '</select>';
+                form += '<button type="submit" onclick="submitForm(formMenuDeroulan)">Soumettre</button>';
+                form += '</form>';
+                document.write(form);
+            }
+
+            function submitForm(formId) {
+                var form = document.getElementById(formId);
+                form.submit();
+            }
+            genererFormulaireZoneSaisie();
+            genererFormulaireBoutonChoix();
+            genererFormulaireMenuDeroulant();
+        }
+    </script>
+</head>
+<body>
+    <script>
+        genererFormulaire(5, 1, 1);
+    </script>
+</body>
+</html>

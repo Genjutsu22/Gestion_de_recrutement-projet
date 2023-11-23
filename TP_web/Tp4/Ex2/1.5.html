@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire 1.5</title>
+</head>
+<body>
+    <h2>Formulaire 1.5</h2>
+    <form action="1.5.php" method="GET">
+    <div>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" name="nom" required><br>
+    </div>
+<div> <br>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" name="prenom" required>
+    </div><br>
+    <div>
+        <label for="sexe">Sexe:</label>
+        <select id="sexe" name="sexe">
+            <option value="M">Masculin</option>
+            <option value="F">Féminin</option>
+        </select>
+    </div>
+    <br>
+<div>
+        <label for="vins">Vins:</label>
+        <select id="vins" name="vins[]" multiple>
+            <option value="bordeaux">Bordeaux</option>
+            <option value="beaujolais">Beaujolais</option>
+            <option value="loire">Loire</option>
+        </select>
+    </div>
+    <br>
+        <input type="submit" value="Envoyer">
+    </form>
+</body>
+</html>

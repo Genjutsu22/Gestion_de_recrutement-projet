@@ -4,9 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Carbon;
 class candidat extends Model
 {
+    
     use HasFactory;
     protected $table = 'candidat';
     protected $primaryKey = 'id_candidat';
@@ -24,6 +25,16 @@ class candidat extends Model
         'lettre_motiv',
         'cin',
     ];
+    public static function updateExpiredOTP()
+    {
+        $expiredDateTime = Carbon::now()->subMinute();
+
+        self::where('OTP_expiry', '<=', $expiredDateTime)
+            ->update([
+                'OTP' => null,
+                'OTP_expiry' => null
+            ]);
+    }
 
 }
 
