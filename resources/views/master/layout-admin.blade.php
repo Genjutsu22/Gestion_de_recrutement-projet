@@ -56,7 +56,7 @@
                                 <a href="{{route('app-admin/home/professions')}}" class="sidebar-link"><i class="fas fa-briefcase"></i> &nbsp;List Professions</a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="#" class="sidebar-link"> <i class="fas fa-file-alt"></i> &nbsp;List Offres d'emploi</a>
+                                <a href="{{route('app-admin/home/offres')}}" class="sidebar-link"> <i class="fas fa-file-alt"></i> &nbsp;List Offres d'emploi</a>
                             </li>
                         </ul>
                     </li>
@@ -68,7 +68,7 @@
                         </a>
                         <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
-                                <a href="{{route('change_passe')}}" class="sidebar-link"><i class="fas fa-lock"></i> &nbsp;Change password</a>
+                                <a href="{{route('change_passe_page')}}" class="sidebar-link"><i class="fas fa-lock"></i> &nbsp;Change password</a>
                         </li>
                         <li class="sidebar-item">
                     <a href="{{ route('logout_admin')}}"

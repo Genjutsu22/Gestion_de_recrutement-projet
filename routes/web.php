@@ -33,8 +33,17 @@ Route::group(['middleware' => 'admin'], function () {
     Route::delete('app-admin/home/delete_profession/{id}', [Admincontroller::class, 'delete_profession'])->name('delete_profession');
     Route::post('app-admin/home/add_profession', [Admincontroller::class, 'add_profession'])->name('add_profession');
     Route::post('app-admin/home/edit_profession', [Admincontroller::class, 'edit_profession'])->name('edit_profession');
-    Route::view('app-admin.change_passe', 'app-admin.change_passe')->name('change_passe');  
     Route::post('app-admin/home/change_passe', [Admincontroller::class, 'change_passe'])->name('change_passe');
+    Route::post('app-admin/home/add_offre', [Admincontroller::class, 'add_offre'])->name('add_offre');
+    Route::get('app-admin/home/offres', [Admincontroller::class, 'show_offres'])->name('app-admin/home/offres');
+    Route::post('app-admin/home/edit_offre', [Admincontroller::class, 'edit_offre'])->name('edit_offre');
+    Route::delete('app-admin/home/delete_offre/{id}', [Admincontroller::class, 'delete_offre'])->name('delete_offre');
+    Route::post('app-admin/home/offre_inactive/{id}', [Admincontroller::class, 'offre_inactive'])->name('offre_inactive');
+    Route::post('app-admin/home/offre_inactive/{id}', [Admincontroller::class, 'offre_inactive'])->name('offre_inactive');
+    Route::get('app-admin/home/demandes/{id}', [Admincontroller::class, 'offres_details'])->name('app-admin/home/demandes');
+    Route::post('app-admin/home/accepter_offre', [Admincontroller::class, 'accepter_offre'])->name('app-admin/home/accepter_offre');
+    Route::post('app-admin/home/refuse_offre/{id}', [Admincontroller::class, 'refuse_offre'])->name('app-admin/home/refuse_offre');
+    Route::view('app-admin.change_passe', 'app-admin.change_passe')->name('change_passe_page');  
     
 });
 Route::group(['middleware' => 'candidat'], function () {

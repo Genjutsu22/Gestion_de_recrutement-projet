@@ -42,7 +42,7 @@ Admin
 <table id="student-datatable" class="table table-striped table-hover table-highlight table-checkable" cellspacing="0">
     <thead>
     <tr class="title">
-            <th>ID</th>
+            <th>#</th>
             <th>Nom</th>
             <th>Nombre de profession</th>
             <th>Actions</th>

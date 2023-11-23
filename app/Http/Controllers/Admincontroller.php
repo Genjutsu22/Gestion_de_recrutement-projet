@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Departement;
 use App\Models\admin;
 use App\Models\candidat;
+use App\Models\demande_emploi;
+use App\Models\offre_emploi;
 use App\Models\profession;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -132,9 +134,127 @@ public function edit_profession(Request $request){
                         "id_depart"=>$request->input('depart_id')        ]);
         return redirect()->back()->with('success', 'Profession est modifié.');
     } catch (\Throwable $th) {
-        return redirect()->back()->with('error', 'Profession non modifié !.');
+        return redirect()->back()->with('error', 'Profession non modifié !');
     }
 }
+
+// offres
+  public function show_offres(){
+        $profs = profession::all();
+        $offres = DB::table('offre_emploi')
+        ->join('profession', 'profession.id_prof', '=', 'offre_emploi.id_prof')
+        ->join('departement', 'departement.id_depart', '=', 'profession.id_depart')
+        ->select('profession.*', 'departement.*','offre_emploi.*')
+        ->get();
+        if (!empty($offres)) {
+             return view('app-admin.offres', compact("profs","offres"));
+            }
+        return redirect('app-admin/home');
+  }
+
+
+  public function add_offre(Request $request){
+   try {
+    // Upload files and get their filenames    
+    $filedt = $request->file('details');
+    $filenamedt = time() . '.' . $filedt->getClientOriginalExtension();
+    $filedt->move(public_path('uploads'), $filenamedt);
+    
+    // Create Candidat instance with form data and file names
+    offre_emploi::create([
+          "id_prof"=>$request->input('prof_id'),
+          "details"=>$filenamedt,
+          "type_emploi"=>$request->input('type_emploi'),
+          "date_pub"=> now(),
+          "date_termine"=>now(),
+          "termine"=> 0,
+    ]);
+    return redirect()->back()->with('success', 'Offre est ajouté.');
+   } catch (\Throwable $th) {
+    return redirect()->back()->with('error', 'Offre non ajouté !');
+   }
+  }
+  public function edit_offre(Request $request){
+    try {
+        $filedt = $request->file('details');
+        $offre = offre_emploi::find($request->input('idoffre'));
+            if (!empty($filedt)) {
+                $filenamedt = time() . '.' . $filedt->getClientOriginalExtension();
+                $filedt->move(public_path('uploads'), $filenamedt);
+                $offre->details = $filenamedt;
+                $offre->save();
+            }
+           $offre->id_prof = $request->input('prof_id');
+           $offre->type_emploi = $request->input('type_emploi');
+           $offre->save();
+        return redirect()->back()->with('success', 'Offre est modifié.');
+       } catch (\Throwable $th) {
+        return redirect()->back()->with('error', 'Offre non modifié !');
+       }
+  }    
+
+
+  public function delete_offre($id){
+      $offre = offre_emploi::find($id);
+      if ($offre) {
+          $offre->delete();
+          return redirect()->back()->with('success', 'Offre est supprimé.');
+      }
+      return redirect()->back()->with('error', 'Offre introuvable !.');
+  }
+ public function offre_inactive($id){
+    try {
+        $offre = offre_emploi::find($id);
+        $offre->termine = '1';
+        $offre->date_termine = now();
+        $offre->save();
+       return back()->with('success', "Offre a été désactivé !");
+   } catch (\Throwable $th) {
+       return back()->with('error', 'Offre non désactivé !');
+  }
+ }
+ public function offres_details($id){
+    $offre = DB::table('offre_emploi')
+            ->join('profession','profession.id_prof','=','offre_emploi.id_prof')
+            ->join('departement','departement.id_depart','=','profession.id_depart')
+            ->where('offre_emploi.id_offre',$id)
+            ->get();
+            $demandes = DB::table('demande_emploi')
+            ->join('candidat', 'demande_emploi.id_candidat', '=', 'candidat.id_candidat')
+            ->join('offre_emploi', 'demande_emploi.id_offre', '=', 'offre_emploi.id_offre')
+            ->where('demande_emploi.id_offre', $id)
+            ->whereNull('demande_emploi.accepted')  // Filter by accepted = null
+            ->select('candidat.*')
+            ->get();
+    if (!empty($demandes)) {
+        return view('app-admin.demandes_offre', compact("demandes","offre"));
+       }
+   return redirect('app-admin/home');
+ }
+ public function accepter_offre(request $request){
+    try {
+       demande_emploi::where('id_candidat', $request->input('idcandidat'))
+        ->where('id_offre', $request->input('idoffre'))
+       ->update([
+            'accepted' => 1,
+            'date_entretien' => $request->input('date_entretien')]);
+         return redirect()->back()->with('success', 'Le candidat a été accepté !');
+ 
+     } catch (\Throwable $th) {
+         return redirect()->back()->with('error', 'Error !');
+   }
+ }
+ public function refuse_offre(request $request, $id_candidat){
+     try {
+      demande_emploi::where('id_candidat', $id_candidat)
+      ->where('id_offre', $request->input('idoffre'))
+      ->update(['accepted' => 0]);
+         
+          return redirect()->back()->with('success', 'Le candidat a été refusé !');
+      } catch (\Throwable $th) {
+          return redirect()->back()->with('error', 'Error !');
+    }
+  }
 public function change_passe(Request $request){
     $admin = Session::get('admin');
     $request->validate([
@@ -149,8 +269,6 @@ public function change_passe(Request $request){
     return back()->with('success', 'Mot de passe est changé');
     }
 
-    return back()->withErrors(['oldpass'=> 'Invalid old password']);
-
-   
+    return back()->withErrors(['oldpass'=> 'Invalid old password']);   
 }
 }

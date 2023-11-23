@@ -51,7 +51,7 @@
   <fieldset>
     <h2 class="fs-title">Cv et Lettre de motivation*</h2>
     <h3 class="fs-subtitle">Step 3</h3>
-    <p>CV*</p>
+    <span>CV*</span>
 <div class="file-upload">
     <div class="file-select">
         <div class="file-select-button" id="fileName1">Choose File</div>
@@ -60,7 +60,7 @@
     </div>
 </div>
 
-<p>Lettre de motivation*</p>
+<span>Lettre de motivation*</span>
 <div class="file-upload">
     <div class="file-select">
         <div class="file-select-button" id="fileName2">Choose File</div>

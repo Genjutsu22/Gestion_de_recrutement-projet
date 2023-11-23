@@ -25,4 +25,5 @@ class offre_emploi extends Model
     {
         return $this->belongsTo(profession::class, 'id_prof', 'id_prof');
     }
+    
 }
