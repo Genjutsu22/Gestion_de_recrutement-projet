@@ -16,7 +16,7 @@ padding-bottom: 4px;
     border-radius: 5px 5px 0 0; 
     left: -50%;
     top: 0;
-    background-image: url('/Tp2/header.jpg');
+    background-image: url('header.jpg');
     background-position: center;
   }
   .title > h1, .title > p{

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          
+            var urlparams = new URLSearchParams(window.location.search);
+
+            var zoneSaisieValue = urlparams.get('zoneSaisie');
+            var choixRadioValue = urlparams.get('choixRadio');
+            var menuDeroulantValue = urlparams.get('menuDeroulant');
+     
+            document.getElementById('zoneSaisieResult').textContent = 'Zone de saisie : ' + zoneSaisieValue;
+            document.getElementById('choixRadioResult').textContent = 'Bouton choix : ' + choixRadioValue;
+            document.getElementById('menuDeroulantResult').textContent = 'Menu déroulant : ' + menuDeroulantValue;
+        });
+    </script>
+</head>
+<body>
+    <h1>Résultat des formulaires</h1>
+    <p id="zoneSaisieResult"></p>
+    <p id="choixRadioResult"></p>
+    <p id="menuDeroulantResult"></p>
+</body>
+</html>

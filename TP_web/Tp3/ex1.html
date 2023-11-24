@@ -12,15 +12,14 @@
             rec_pass = form1.rec.value;
             pic = form1.pic.value.split('.');
             extension = pic[pic.length - 1];
-            alert(extension.length);
         if(pass.length < 8){
             alert('mot de passe inferieure de 8 characters !');
         }else if(pass != rec_pass){
                 alert('les mot de passes sont pas compatible !');
         }
-        if(extension != "jpg" || extension != "png" || extension != "jpeg" ){
-            alert('ce fichier est pas compatible !');
-        }
+        if (extension != "jpg" && extension != "png" && extension != "jpeg") {
+    alert('Ce fichier n\'est pas compatible !');
+}
         }
 
     </script>

@@ -8,7 +8,7 @@
         function afficherTableMultiplication() {
             var valeur = prompt("Entrez une valeur :");
 
-            if (valeur !== null && !isNaN(valeur)) {
+            if (!isNaN(valeur)) {
                 valeur = parseInt(valeur);
                 var table = "<h2>Table de multiplication de " + valeur + " :</h2>";
                 table += "<table border='1'><tr><th>Multiplication</th><th>Résultat</th></tr>";

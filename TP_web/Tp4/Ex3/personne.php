@@ -9,9 +9,13 @@ class personne{
         $this->date_naissance = $date;
      }
      function age(){
-        $date = new DateTime($this->date_naissance);
-        $formatted = $date->format('Y-m-d');
-        return Date('Y-m-d') - $formatted;
+      $date = new DateTime($this->date_naissance);
+      $date->format('Y-m-d');
+      $currentDate = new DateTime();
+      $age = $currentDate->diff($date)->y; 
+      $ageAsInt = intval($age);
+ 
+      return $ageAsInt;
      }
      function presenter(){
         return " <strong>Nom :</strong> " . $this->nom ." <strong>Prenom :</strong> ". $this->prenom. "<strong> Date de naissance :</strong> " . $this->date_naissance; 
