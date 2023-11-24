@@ -58,3 +58,6 @@ pass : admin
 - candidat account
 http://127.0.0.1:8000/login
 you can create your account in registring page
+
+## license
+- all rights reserved for Abdallah Oubella. Student of BI and statistics.

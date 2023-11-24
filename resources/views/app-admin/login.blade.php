@@ -31,7 +31,6 @@ Admin Login
         <i></i>
       </div>
       <div class="links">
-        <a href="#">Forgot Password?</a>
       </div>
       <input type="submit" class="bottom" value="Login">
       </form>

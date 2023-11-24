@@ -172,9 +172,14 @@ body {
   letter-spacing: 0.1em;
   cursor: pointer;
   align-self: center;
+  transition: 0.5s;
 }
 .form .bottom:active {
   opacity: 0.8;
+}
+.form .bottom:hover{
+  background-color: aliceblue;
+  color: #EF6C33;
 }
 .footer {
   bottom: 0;
