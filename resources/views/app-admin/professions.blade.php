@@ -43,8 +43,8 @@ Admin
     <thead>
     <tr class="title">
             <th>#</th>
-            <th>Nom</th>
-            <th>Nombre de profession</th>
+            <th>Nom de profession</th>
+            <th>Nom de département</th>
             <th>Actions</th>
         </tr>
     </thead>
