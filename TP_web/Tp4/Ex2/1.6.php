@@ -13,6 +13,7 @@
             traiterDonnees();
             
         }
+        
         function afficherFormulaire() {
             echo '<h2>Formulaire 1.6</h2>';
             echo '<form action="1.6.php" method="POST">';
